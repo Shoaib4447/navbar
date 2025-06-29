@@ -19,20 +19,23 @@ const Navbar = () => {
             <FaBars />
           </button>
         </div>
-        {showLinks && (
-          <div className='links-container show-container'>
-            <ul className='links'>
-              {links.map((link) => {
-                const { id, url, text } = link;
-                return (
-                  <li key={id}>
-                    <a href={url}>{text}</a>
-                  </li>
-                );
-              })}
-            </ul>
-          </div>
-        )}
+
+        <div
+          className={`${
+            showLinks ? "links-container show-container" : "link-container"
+          }`}
+        >
+          <ul className='links'>
+            {links.map((link) => {
+              const { id, url, text } = link;
+              return (
+                <li key={id}>
+                  <a href={url}>{text}</a>
+                </li>
+              );
+            })}
+          </ul>
+        </div>
         <ul className='social-icons'>
           {social.map((socialIcon) => {
             const { id, url } = socialIcon;
